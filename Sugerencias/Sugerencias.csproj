@@ -87,6 +87,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
+    <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Registros\rSugerencias.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -149,6 +150,13 @@
     </Compile>
     <Compile Include="Consulta\cSugerencia.aspx.designer.cs">
       <DependentUpon>cSugerencia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
