@@ -1,0 +1,96 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="Sugerencias.Master" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/toastr.min.css" rel="stylesheet" />
+    <script src="/Scripts/jquery-3.0.0.slim.min.js"></script>
+    <script src="/Scripts/popper.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/Scripts/toastr.min.js"></script>
+
+     <script type="text/javascript">
+        function Notify(msg, title, type, clear, pos, sticky) {
+            if (clear == true) {
+                toastr.clear();
+            }
+            if (sticky == true) {
+                toastr.tapToDismiss = true;
+                toastr.timeOut = 10000;
+            }
+
+            toastr.options.onclick = function () {
+                //alert('You can perform some custom action after a toast goes away'); 
+            }
+            //"toast-top-left"; 
+            toastr.options.positionClass = pos;
+            if (type.toLowerCase() == 'info') {
+                toastr.options.timeOut = 1000;
+                toastr.tapToDismiss = true;
+                toastr.info(msg, title);
+            }
+            if (type.toLowerCase() == 'success') {
+                toastr.options.timeOut = 1500;
+                toastr.success(msg, title);
+            }
+            if (type.toLowerCase() == 'warning') {
+                toastr.options.timeOut = 3000;
+                toastr.warning(msg, title);
+            }
+            if (type.toLowerCase() == 'error') {
+                toastr.options.timeOut = 10000;
+                toastr.error(msg, title);
+            }
+        }
+     </script>
+
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+  
+           <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="/Default.aspx">Tarea Azure</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Archivo <span class="sr-only">(current)</span></a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registros </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/Registros/rSugerencias.aspx">Registro</a>
+
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Consultas </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/Consulta/cSugerencias.aspx">consulta</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Ayuda <span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+        <br />
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="Contenido" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
